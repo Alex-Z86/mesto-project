@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Приложение, чтобы делиться фотографиями мест, где Вы побывали">
+    <meta name="keywords" content="путешествовия, место">
+    <meta name="author" content="Александра Зайцева">
+    <title>Mesto</title>
+    <link rel="stylesheet" href="./pages/index.css">
+</head>
+<body class="page">
+    <header class="header">
+        <img class="header__logo" src="./images/header-logo.svg" alt="Логотип">
+        <hr class="header__line"> 
+    </header>
+    <main class="content">
+        <section class="profile">
+            <img class="profile__avatar" src="./images/profile-avatar.jpg" alt="Аватарка">
+            <div class="profile__info">
+                <h1 class="profile__name">Жак-Ив Кусто</h1>
+                <img class="profile__edit-button" src="./images/profile-edit-button.svg">
+                <p class="profile__status">Исследователь океана</p>
+            </div>
+            <img class="profile__add-button" src="./images/profile-add-button.svg">
+        </section>
+        <section class="elements" aria-label="places-table">
+            <ul class="elements__list">
+                <li class="element">
+                    <img class="element__image" src="./images/elements-ai-petri.jpg" alt="Ай-Петри">
+                    <div class="element__label">
+                        <h2 class="element__title" title="Ай-Петри">Ай-Петри</h2>
+                        <img class="element__button-heart" src="./images/elements-heart-button.svg">
+                    </div>
+                </li>
+                <li class="element">
+                    <img class="element__image" src="./images/elements-guamka.jpg" alt="Гуамка">
+                    <div class="element__label">
+                        <h2 class="element__title" title="Гуамка">Гуамка</h2>
+                        <img class="element__button-heart" src="./images/elements-heart-button.svg">
+                    </div>
+                </li>
+                <li class="element">
+                    <img class="element__image" src="./images/elements-karelia-1.jpg" alt="Карелия">
+                    <div class="element__label">
+                        <h2 class="element__title" title="Карелия">Карелия</h2>
+                        <img class="element__button-heart" src="./images/elements-heart-button.svg">
+                    </div>
+                </li>
+                <li class="element">
+                    <img class="element__image" src="./images/elements-fisht.jpg" alt="Фишт">
+                    <div class="element__label">
+                        <h2 class="element__title" title="Фишт">Фишт</h2>
+                        <img class="element__button-heart" src="./images/elements-heart-button.svg">
+                    </div>
+                </li>
+                <li class="element">
+                    <img class="element__image" src="./images/elements-baikal.jpg" alt="Байкал">
+                    <div class="element__label">
+                        <h2 class="element__title" title="Байкал">Байкал</h2>
+                        <img class="element__button-heart" src="./images/elements-heart-button.svg">
+                    </div>
+                </li>
+                <li class="element">
+                    <img class="element__image" src="./images/elements-ob.jpg" alt="Переправа через Обь">
+                    <div class="element__label">
+                        <h2 class="element__title" title="Салехард, переправа через Обь">
+                            Салехард, переправа через Обь</h2>
+                        <img class="element__button-heart" src="./images/elements-heart-button.svg">
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <div class="popup popup_opened">
+            <form class="form">
+                <h2 class="form__title">Редактировать профиль</h2>
+                <input class="form__item form__item_el_name" type="text" name="name" value="Жак-Ив Кусто">
+                <input class="form__item form__item_el_status" type="text" name="status" value="Исследователь океана">
+                <button class="form__button" type="submit" value="Сохранить">Сохранить</button>
+                <img class="form__close-icon" src="./images/form-close-icon.svg">
+            </form>
+        </div>
+    </main>
+    <footer class="footer">
+        <p class="footer__copyright">© 2020 Mesto Russia</p>
+    </footer>  
+</body>
+</html>

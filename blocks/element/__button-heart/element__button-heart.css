@@ -1,0 +1,13 @@
+.element__button-heart {
+    max-width: 22px;
+}
+.element__button-heart:hover {
+    transition: opacity .2s;
+    opacity: 0.5;
+}
+.element__button-heart:active {
+    background-image: url(../../../images/elements-heart-button-activ.png);
+    opacity: 1;
+    background-position: center;
+    background-repeat: no-repeat;
+}
