@@ -20,6 +20,6 @@
 
 ## **Ссылка на проект** 
 
- * [Ссылка здесь](https://alex-z86.github.io/russian-travel/index.html) 
+ * [Ссылка здесь](https://alex-z86.github.io/mesto-project/index.html) 
 
  
