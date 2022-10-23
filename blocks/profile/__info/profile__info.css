@@ -6,13 +6,15 @@
     align-items: end;
     gap: 7px 18px;
     box-sizing: border-box;
+    grid-template-areas:
+    "name edit-button"
+    "status status";
 }
 
 @media screen and (max-width: 618px) {
     .profile__info {
-        margin-left: 14px;
+        margin-left: 0;
         margin-top: 26px;
         column-gap: 10px;
-        justify-content: end;
     }
 }

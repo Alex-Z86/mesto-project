@@ -7,79 +7,110 @@
     <meta name="description" content="Приложение, чтобы делиться фотографиями мест, где Вы побывали">
     <meta name="keywords" content="путешествовия, место">
     <meta name="author" content="Александра Зайцева">
-    <title>Mesto</title>
+    <title>Место</title>
     <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="page">
     <header class="header">
         <img class="header__logo" src="./images/header-logo.svg" alt="Логотип">
-        <hr class="header__line"> 
     </header>
     <main class="content">
         <section class="profile">
             <img class="profile__avatar" src="./images/profile-avatar.jpg" alt="Аватарка">
             <div class="profile__info">
                 <h1 class="profile__name">Жак-Ив Кусто</h1>
-                <img class="profile__edit-button" src="./images/profile-edit-button.svg" alt="Редактировать">
+                <button class="profile__edit-button" type="button" aria-label="Редактировать">
+                    <img class="profile__edit-button-image" src="./images/profile-edit-button.svg" alt="Редактировать">
+                </button>
                 <p class="profile__status">Исследователь океана</p>
             </div>
-            <img class="profile__add-button" src="./images/profile-add-button.svg" alt="Добавить">
+            <button class="profile__add-button" type="button" aria-label="Добавить">
+                <img class="profile__add-button-image" src="./images/profile-add-button.svg" alt="Добавить">
+            </button>
         </section>
         <section class="elements" aria-label="places-table">
             <ul class="elements__list">
-                <li class="element">
-                    <img class="element__image" src="./images/elements-ai-petri.jpg" alt="Ай-Петри">
-                    <div class="element__label">
-                        <h2 class="element__title" title="Ай-Петри">Ай-Петри</h2>
-                        <img class="element__button-heart" src="./images/elements-heart-button.svg" alt="Лайк">
-                    </div>
+                <li>
+                    <article class="element">
+                        <img class="element__image" src="./images/elements-ai-petri.jpg" alt="Ай-Петри">
+                        <div class="element__label">
+                            <h2 class="element__title" title="Ай-Петри">Ай-Петри</h2>
+                            <button class="element__button-heart" type="button" aria-label="Нравится">
+                                <img src="./images/element-heart-button.svg" alt="Лайк">
+                            </button>
+                        </div>
+                    </article>
                 </li>
-                <li class="element">
-                    <img class="element__image" src="./images/elements-guamka.jpg" alt="Гуамка">
-                    <div class="element__label">
-                        <h2 class="element__title" title="Гуамка">Гуамка</h2>
-                        <img class="element__button-heart" src="./images/elements-heart-button.svg" alt="Лайк">
-                    </div>
+                <li>
+                    <article class="element">
+                        <img class="element__image" src="./images/elements-guamka.jpg" alt="Гуамка">
+                        <div class="element__label">
+                            <h2 class="element__title" title="Гуамка">Гуамка</h2>
+                            <button class="element__button-heart" type="button" aria-label="Нравится">
+                                <img src="./images/element-heart-button.svg" alt="Лайк">
+                            </button>
+                        </div>
+                    </article>
                 </li>
-                <li class="element">
-                    <img class="element__image" src="./images/elements-karelia-1.jpg" alt="Карелия">
-                    <div class="element__label">
-                        <h2 class="element__title" title="Карелия">Карелия</h2>
-                        <img class="element__button-heart" src="./images/elements-heart-button.svg" alt="Лайк">
-                    </div>
+                <li>
+                    <article class="element">
+                        <img class="element__image" src="./images/elements-karelia-1.jpg" alt="Карелия">
+                        <div class="element__label">
+                            <h2 class="element__title" title="Карелия">Карелия</h2>
+                            <button class="element__button-heart" type="button" aria-label="Нравится">
+                                <img src="./images/element-heart-button.svg" alt="Лайк">
+                            </button>
+                        </div>
+                    </article>
                 </li>
-                <li class="element">
-                    <img class="element__image" src="./images/elements-fisht.jpg" alt="Фишт">
-                    <div class="element__label">
-                        <h2 class="element__title" title="Фишт">Фишт</h2>
-                        <img class="element__button-heart" src="./images/elements-heart-button.svg" alt="Лайк">
-                    </div>
+                <li>
+                    <article class="element">
+                        <img class="element__image" src="./images/elements-fisht.jpg" alt="Фишт">
+                        <div class="element__label">
+                            <h2 class="element__title" title="Фишт">Фишт</h2>
+                            <button class="element__button-heart" type="button" aria-label="Нравится">
+                                <img src="./images/element-heart-button.svg" alt="Лайк">
+                            </button>
+                        </div>
+                    </article>
                 </li>
-                <li class="element">
-                    <img class="element__image" src="./images/elements-baikal.jpg" alt="Байкал">
-                    <div class="element__label">
-                        <h2 class="element__title" title="Байкал">Байкал</h2>
-                        <img class="element__button-heart" src="./images/elements-heart-button.svg" alt="Лайк">
-                    </div>
+                <li>
+                    <article class="element">
+                        <img class="element__image" src="./images/elements-baikal.jpg" alt="Байкал">
+                        <div class="element__label">
+                            <h2 class="element__title" title="Байкал">Байкал</h2>
+                            <button class="element__button-heart" type="button" aria-label="Нравится">
+                                <img src="./images/element-heart-button.svg" alt="Лайк">
+                            </button>
+                        </div>
+                    </article>
                 </li>
-                <li class="element">
-                    <img class="element__image" src="./images/elements-ob.jpg" alt="Переправа через Обь">
-                    <div class="element__label">
-                        <h2 class="element__title" title="Салехард, переправа через Обь">
-                            Салехард, переправа через Обь</h2>
-                        <img class="element__button-heart" src="./images/elements-heart-button.svg" alt="Лайк">
-                    </div>
+                <li>
+                    <article class="element">
+                        <img class="element__image" src="./images/elements-ob.jpg" alt="Переправа через Обь">
+                        <div class="element__label">
+                            <h2 class="element__title" title="Салехард, переправа через Обь">
+                                Салехард, переправа через Обь</h2>
+                            <button class="element__button-heart" type="button" aria-label="Нравится">
+                                <img src="./images/element-heart-button.svg" alt="Лайк">
+                            </button>
+                        </div>
+                    </article>
                 </li>
             </ul>
         </section>
         <div class="popup"> <!-- для открытия формы к классу popup надо добавить модификатор popup_opened -->
-            <form class="form">
-                <h2 class="form__title">Редактировать профиль</h2>
-                <input class="form__item form__item_el_name" type="text" name="name" value="Жак-Ив Кусто">
-                <input class="form__item form__item_el_status" type="text" name="status" value="Исследователь океана">
-                <button class="form__button" type="submit" value="Сохранить">Сохранить</button>
-                <img class="form__close-icon" src="./images/form-close-icon.svg" alt="Закрыть">
-            </form>
+            <div class="popup__container">
+                <button class="popup__close-icon" type="button" aria-label="Закрыть">
+                    <img class="popup__close-icon-image" src="./images/popup-close-icon.svg" alt="Закрыть">
+                </button>
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <form class="form" name="edit">
+                    <input class="form__item form__item_el_name" type="text" name="name" value="Жак-Ив Кусто">
+                    <input class="form__item form__item_el_status" type="text" name="status" value="Исследователь океана">
+                    <button class="form__button" type="submit" value="Сохранить">Сохранить</button>
+                </form>
+            </div>
         </div>
     </main>
     <footer class="footer">

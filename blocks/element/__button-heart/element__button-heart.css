@@ -1,13 +1,20 @@
 .element__button-heart {
+    margin: 5px 5px 5px 0;
+    padding: 0;
     max-width: 22px;
+    min-height: 19px;
+    align-self: flex-end;
+    border: none;
+    display: flex;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
 }
 .element__button-heart:hover {
     transition: opacity .2s;
     opacity: 0.5;
 }
 .element__button-heart:active {
-    background-image: url(../../../images/elements-heart-button-activ.png);
+    background-image: url(../../../images/element-heart-button-activ.svg);
     opacity: 1;
-    background-position: center;
-    background-repeat: no-repeat;
 }
