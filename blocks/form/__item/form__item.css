@@ -11,9 +11,6 @@
     font-size: 14px;
     line-height: 1.21px;
     color: #000;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
 }
 .form__item:first-of-type {
     margin-top: 48px;

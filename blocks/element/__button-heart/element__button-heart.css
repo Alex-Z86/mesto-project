@@ -1,14 +1,15 @@
 .element__button-heart {
     margin: 5px 5px 5px 0;
     padding: 0;
-    max-width: 22px;
-    min-height: 19px;
+    width: 22px;
+    height: 19px;
     align-self: flex-end;
     border: none;
-    display: flex;
-    background-color: rgba(0, 0, 0, 0);
-    background-position: center;
+    background-color: transparent;
+    background-image: url(../../../images/element-heart-button.svg);
+    /*background-position: center;
     background-repeat: no-repeat;
+    background-size: 22px 19px;*/
     cursor: pointer;
 }
 .element__button-heart:hover {

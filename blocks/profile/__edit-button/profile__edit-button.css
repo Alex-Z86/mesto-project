@@ -3,7 +3,11 @@
     padding: 0;
     width: 24px;
     height: 24px;
-    background-color: #000;
+    background-color: transparent;
+    background-image: url(../../../images/profile-edit-button.svg);
+    background-position: center;
+    background-size: 7px;
+    background-repeat: no-repeat;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -21,5 +25,6 @@
         width: 18px;
         height: 18px;
         margin-bottom: 5px;
+        background-size: 7.5px;
     }
 }
