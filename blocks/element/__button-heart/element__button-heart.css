@@ -6,6 +6,7 @@
     align-self: flex-end;
     border: none;
     display: flex;
+    background-color: rgba(0, 0, 0, 0);
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
