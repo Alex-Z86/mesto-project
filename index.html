@@ -42,29 +42,29 @@
         </section>
         <div class="popup popup__edit-profile">
             <div class="popup__container"> 
-                <button class="popup__close-icon popup__edit-profile-close-icon" type="button" aria-label="Закрыть"></button>
+                <button class="popup__close-icon" type="button" aria-label="Закрыть"></button>
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <form class="form form__edit-form" name="edit">
-                    <input class="form__item form__item_el_name" type="text" name="name" value="Имя" required>
-                    <input class="form__item form__item_el_status" type="text" name="status" value="Род занятий" required>
+                <form class="form form__edit-form" name="profile-form">
+                    <input class="form__item form__item_el_name" type="text" name="name" placeholder="Имя" required>
+                    <input class="form__item form__item_el_status" type="text" name="status" placeholder="Род занятий" required>
                     <button class="form__button form__edit-profile-button" type="submit" value="Сохранить">Сохранить</button>
                 </form>
             </div>
         </div>
         <div class="popup popup__add-card">
             <div class="popup__container"> 
-                <button class="popup__close-icon popup__add-card-close-icon" type="button" aria-label="Закрыть"></button>
+                <button class="popup__close-icon" type="button" aria-label="Закрыть"></button>
                 <h2 class="popup__title">Новое место</h2>
-                <form class="form form__add-form" name="add">
-                    <input class="form__item form__item_el_title" type="text" name="title" value="Название" required>
-                    <input class="form__item form__item_el_link" type="text" name="link" value="Ссылка на картинку" required>
+                <form class="form form__add-form" name="card-form">
+                    <input class="form__item form__item_el_title" type="text" name="title" placeholder="Название" required>
+                    <input class="form__item form__item_el_link" type="text" name="link" placeholder="Ссылка на картинку" required>
                     <button class="form__button form__add-card-button" type="submit" value="Сохранить">Сохранить</button>
                 </form>
             </div>
         </div>
         <div class="popup popup__foto-view">
             <div class="popup__container-foto-view"> 
-                <button class="popup__close-icon popup__foto-view-close-icon" type="button" aria-label="Закрыть"></button>
+                <button class="popup__close-icon" type="button" aria-label="Закрыть"></button>
                 <img class="popup__foto-image" alt="Фото">
                 <p class="popup__foto-name"></p>
             </div>
