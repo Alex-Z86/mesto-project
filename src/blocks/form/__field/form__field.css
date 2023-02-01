@@ -1,0 +1,19 @@
+.form__field {
+  margin: 0;
+  padding: 0;
+}
+.form__field:first-of-type {
+  margin-top: 54px;
+}
+.form__field:last-of-type {
+  margin-bottom: 21px;
+}
+
+@media screen and (max-width: 767px) {
+  .form__field:first-of-type {
+    margin-top: 75px;
+  }
+  .form__field:last-of-type {
+    margin-bottom: 15px;
+  }
+}

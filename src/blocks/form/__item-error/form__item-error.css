@@ -1,0 +1,11 @@
+.form__item-error {
+  display: block;
+  margin-top: 5px;
+  min-height: 25px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1;
+  color: #ff0000;
+  visibility: hidden;
+}
