@@ -27,6 +27,7 @@
 @import url(../blocks/element/__delete-icon/element__delete-icon.css);
 
 @import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/__foto-view/popup__foto-view.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__close-icon/popup__close-icon.css);

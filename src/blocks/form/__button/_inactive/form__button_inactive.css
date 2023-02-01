@@ -3,8 +3,10 @@
   border: 1px solid #000000;
   color: #000000;
   opacity: 0.2;
+  cursor: auto;
+  transition: none;
 }
 
-.form__button_inactive:hover {
+.form__button_inactive:disabled {
   opacity: 0.2;
 }

@@ -11,11 +11,12 @@ import {
   cardForm,
   titleInput,
   linkInput,
+  addCardSubmit,
 } from "./constants";
 
 import { closePopup } from "./modal.js";
 import { addElement } from "./card.js";
-import { enableValidation } from "./validate.js";
+import { enableValidation, toggleButtonState } from "./validate.js";
 import { settingsObject } from "./utils.js";
 
 /* Объявляем функцию отправки формы редактирования профиля */
@@ -38,6 +39,9 @@ function handleAddFormSubmit(evt) {
 
   addElement(titleInput.value, linkInput.value);
   evt.target.reset();
+
+  addCardSubmit.setAttribute("disabled", true);
+  addCardSubmit.classList.add(settingsObject.inactiveButtonClass);
 }
 /* Вешаем слушатель события */
 cardForm.addEventListener("submit", handleAddFormSubmit);

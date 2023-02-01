@@ -1,16 +1,18 @@
+import { settingsObject } from "./utils";
+
 /* Функция, показывающая элемент ошибки */
 const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.add("form__item_type_error");
+  inputElement.classList.add(settingsObject.inputErrorClass);
   errorElement.textContent = errorMessage;
-  errorElement.classList.add("form__item-error_active");
+  errorElement.classList.add(settingsObject.errorClass);
 };
 
 /* Функция, скрывающая элемент ошибки */
 const hideInputError = (formElement, inputElement) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove("form__item_type_error");
-  errorElement.classList.remove("form__item-error_active");
+  inputElement.classList.remove(settingsObject.inputErrorClass);
+  errorElement.classList.remove(settingsObject.errorClass);
   errorElement.textContent = "";
 };
 
@@ -37,20 +39,24 @@ const hasInvalidInput = (inputList) => {
 };
 
 /* Функция, изменяющая состояние кнопки отправки данных в зависимости от колбэка hasInvalidInput */
-const toggleButtonState = (inputList, buttonElement) => {
+export const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
     buttonElement.disabled = true;
-    buttonElement.classList.add("form__button_inactive");
+    buttonElement.classList.add(settingsObject.inactiveButtonClass);
   } else {
     buttonElement.disabled = false;
-    buttonElement.classList.remove("form__button_inactive");
+    buttonElement.classList.remove(settingsObject.inactiveButtonClass);
   }
 };
 
 /* Функция, добавляющая обработчики события "инпут" всем полям ввода */
 const setEventListeners = (formElement) => {
-  const inputList = Array.from(formElement.querySelectorAll(".form__item")); // Создаем массив из всех полей
-  const buttonElement = formElement.querySelector(".form__button");
+  const inputList = Array.from(
+    formElement.querySelectorAll(settingsObject.inputSelector)
+  ); // Создаем массив из всех полей
+  const buttonElement = formElement.querySelector(
+    settingsObject.submitButtonSelector
+  );
 
   toggleButtonState(inputList, buttonElement); // Вызываем функцию, чтобы кнопка была не активной до ввода текста
 
@@ -62,8 +68,10 @@ const setEventListeners = (formElement) => {
   });
 };
 
-const enableValidation = () => {
-  const formList = Array.from(document.querySelectorAll(".form")); // Создаем массив из всех форм
+const enableValidation = (settingsObject) => {
+  const formList = Array.from(
+    document.querySelectorAll(settingsObject.formSelector)
+  ); // Создаем массив из всех форм
   formList.forEach((formElement) => {
     // Перебираем полученную коллекцию и для каждой формы вызываем setEventListeners
     setEventListeners(formElement);
@@ -71,3 +79,16 @@ const enableValidation = () => {
 };
 
 export { enableValidation };
+
+/* Функция для удаления ошибок при закрытии попапа без отправки формы */
+function resetError(formElement, config) {
+  const inputList = Array.from(
+    formElement.querySelectorAll(config.inputSelector)
+  );
+  inputList.forEach((inputElement) =>
+    hideInputError(formElement, inputElement, config)
+  );
+  toggleButtonState(formElement, inputList, config);
+}
+
+export { resetError };
