@@ -87,7 +87,8 @@ function resetError(formElement, config) {
   inputList.forEach((inputElement) =>
     hideInputError(formElement, inputElement, config)
   );
-  toggleButtonState(formElement, inputList, config);
+  const buttonElement = formElement.querySelector(config.submitButtonSelector);
+  toggleButtonState(inputList, buttonElement, config);
 }
 
 export { resetError };
