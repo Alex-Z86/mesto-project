@@ -1,6 +1,7 @@
 import {
   nameProfile,
   jobProfile,
+  avatarProfile,
   nameInput,
   jobInput,
   editProfilePopup,
@@ -12,10 +13,28 @@ import {
   titleInput,
   linkInput,
   popupList,
+  editAvatarButton,
+  editAvatarPopup,
+  avatarForm,
+  avatarLinkInput,
 } from "./constants";
 
 import { resetError } from "./validate";
 import { settingsObject } from "./utils";
+import { getUserInfo } from "./api";
+
+export let userID;
+
+getUserInfo()
+  .then((data) => {
+    nameProfile.textContent = data.name;
+    jobProfile.textContent = data.about;
+    avatarProfile.src = data.avatar;
+    userID = data._id;
+  })
+  .catch((err) => {
+    console.log("Данные не загрузились: ", err);
+  });
 
 /* Функция закрытия попапа нажатием на Esc */
 function closePopupEsc(evt) {
@@ -59,6 +78,15 @@ addButton.addEventListener("click", () => {
   resetError(cardForm, settingsObject);
 });
 
+/* Вешаем слушатель клика на кнопку открытия модального окна редактирования аватарки */
+editAvatarButton.addEventListener("click", () => {
+  openPopup(editAvatarPopup);
+
+  avatarLinkInput.value = "";
+
+  resetError(avatarForm, settingsObject);
+});
+
 /* Вешаем слушателeЙ клика на кнопки закрытия всех попапов */
 const closeButtons = document.querySelectorAll(".popup__close-icon");
 closeButtons.forEach((button) => {
@@ -75,3 +103,10 @@ popupList.forEach((popupElement) => {
     }
   });
 });
+
+export const showSaving = (submit) => {
+  submit.textContent = "Сохранение...";
+};
+export const hideSaving = (submit) => {
+  submit.textContent = "Сохранить";
+};

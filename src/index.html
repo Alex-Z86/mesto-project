@@ -22,19 +22,26 @@
     </header>
     <main class="content">
       <section class="profile">
-        <img
-          class="profile__avatar"
-          src="<%=require('./images/profile-avatar.jpg')%>"
-          alt="Аватарка"
-        />
+        <div class="profile__container">
+          <img
+            class="profile__avatar"
+            src="<%=require('./images/profile-avatar.jpg')%>"
+            alt="Аватарка"
+          />
+          <button
+            class="profile__edit-avatar-button"
+            type="button"
+            aria-label="Редактировать"
+          ></button>
+        </div>
         <div class="profile__info">
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <h1 class="profile__name"></h1>
           <button
             class="profile__edit-button"
             type="button"
             aria-label="Редактировать"
           ></button>
-          <p class="profile__status">Исследователь океана</p>
+          <p class="profile__status"></p>
         </div>
         <button
           class="profile__add-button"
@@ -50,11 +57,14 @@
                 <img class="element__image" alt="Фото" />
                 <div class="element__label">
                   <h2 class="element__title" title="Название"></h2>
-                  <button
-                    class="element__button-heart"
-                    type="button"
-                    aria-label="Нравится"
-                  ></button>
+                  <div class="element__button-heart-container">
+                    <button
+                      class="element__button-heart"
+                      type="button"
+                      aria-label="Нравится"
+                    ></button>
+                    <p class="element__button-heart-number"></p>
+                  </div>
                 </div>
                 <button
                   class="element__delete-icon"
@@ -154,6 +164,40 @@
             </label>
             <button
               class="form__button form__add-card-button"
+              type="submit"
+              value="Сохранить"
+            >
+              Сохранить
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="popup popup__edit-avatar">
+        <div class="popup__container">
+          <button
+            class="popup__close-icon"
+            type="button"
+            aria-label="Закрыть"
+          ></button>
+          <h2 class="popup__title">Обновить аватар</h2>
+          <form class="form form__edit-avatar" name="avatar-form" novalidate>
+            <label
+              class="form__field"
+              aria-label="Введите ссылку на новый аватар"
+            >
+              <input
+                id="avatar-link-item"
+                class="form__item form__item_el_avatar-link"
+                type="url"
+                name="avatar-link"
+                placeholder="Ссылка на аватар"
+                required
+              />
+              <span class="avatar-link-item-error form__item-error"></span>
+            </label>
+            <button
+              class="form__button form__edit-avatar-button"
               type="submit"
               value="Сохранить"
             >
