@@ -18,13 +18,20 @@ import {
   avatarLinkInput,
   avatarProfile,
   profileFormSubmit,
-} from "./constants";
+  userParams,
+} from "./constants.js";
 
-import { closePopup, showSaving, hideSaving } from "./modal.js";
-import { addElement } from "./card.js";
+import { closePopup, showSaving, hideSaving, updateUserData } from "./modal.js";
+import { addElement, updateCardsData } from "./card.js";
 import { enableValidation } from "./validate.js";
 import { settingsObject } from "./utils.js";
-import { editProfileData, addNewCard, editProfileAvatar } from "./api";
+import {
+  editProfileData,
+  addNewCard,
+  editProfileAvatar,
+  getUserInfo,
+  getCards,
+} from "./api.js";
 
 /* Объявляем функцию отправки формы редактирования профиля */
 function handleProfileFormSubmit(evt) {
@@ -65,14 +72,14 @@ function handleAddFormSubmit(evt) {
         data.owner._id
       );
       closePopup(addCardPopup);
+      evt.target.reset();
+      addCardSubmit.setAttribute("disabled", true);
+      addCardSubmit.classList.add(settingsObject.inactiveButtonClass);
     })
     .catch((err) => {
       console.log(err);
     })
     .finally(() => {
-      evt.target.reset();
-      addCardSubmit.setAttribute("disabled", true);
-      addCardSubmit.classList.add(settingsObject.inactiveButtonClass);
       hideSaving(addCardSubmit);
     });
 }
@@ -90,18 +97,32 @@ function handleAvatarFormSubmit(evt) {
     .then((data) => {
       avatarProfile.src = data.avatar;
       closePopup(editAvatarPopup);
+      evt.target.reset();
+      avatarSubmit.setAttribute("disabled", true);
+      avatarSubmit.classList.add(settingsObject.inactiveButtonClass);
     })
     .catch((err) => {
       console.log(err);
     })
     .finally(() => {
-      evt.target.reset();
-      avatarSubmit.setAttribute("disabled", true);
-      avatarSubmit.classList.add(settingsObject.inactiveButtonClass);
       hideSaving(avatarSubmit);
     });
 }
 /* Вешаем слушатель события */
 avatarForm.addEventListener("submit", handleAvatarFormSubmit);
+
+const loadPage = () => {
+  Promise.all([getUserInfo(), getCards()])
+    .then(([userInfo, cardsInfo]) => {
+      userParams.userID = userInfo._id;
+      updateUserData(userInfo);
+      updateCardsData(cardsInfo);
+    })
+    .catch((err) => {
+      console.log("Данные не загрузились: ", err);
+    });
+};
+
+loadPage();
 
 enableValidation(settingsObject);

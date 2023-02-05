@@ -13,38 +13,42 @@ const getResponce = (res) => {
   return Promise.reject(`Ошибка ${res.statusText}`);
 };
 
+function request(url, options) {
+  return fetch(url, options).then(getResponce);
+}
+
 export const getUserInfo = () => {
-  return fetch(`${apiConfig.baseUrl}/users/me`, {
+  return request(`${apiConfig.baseUrl}/users/me`, {
     headers: apiConfig.headers,
-  }).then(getResponce);
+  });
 };
 
 export const getCards = () => {
-  return fetch(`${apiConfig.baseUrl}/cards`, {
+  return request(`${apiConfig.baseUrl}/cards`, {
     headers: apiConfig.headers,
-  }).then(getResponce);
+  });
 };
 
 export const editProfileData = (name, about) => {
-  return fetch(`${apiConfig.baseUrl}/users/me`, {
+  return request(`${apiConfig.baseUrl}/users/me`, {
     method: "PATCH",
     headers: apiConfig.headers,
     body: JSON.stringify({
       name: name,
       about: about,
     }),
-  }).then(getResponce);
+  });
 };
 
 export const addNewCard = (name, link) => {
-  return fetch(`${apiConfig.baseUrl}/cards`, {
+  return request(`${apiConfig.baseUrl}/cards`, {
     method: "POST",
     headers: apiConfig.headers,
     body: JSON.stringify({
       name: name,
       link: link,
     }),
-  }).then(getResponce);
+  });
 };
 
 export const deleteCard = (cardID) => {
@@ -59,25 +63,25 @@ export const deleteCard = (cardID) => {
 };
 
 export const likeCard = (cardID) => {
-  return fetch(`${apiConfig.baseUrl}/cards/likes/${cardID}`, {
+  return request(`${apiConfig.baseUrl}/cards/likes/${cardID}`, {
     method: "PUT",
     headers: apiConfig.headers,
-  }).then(getResponce);
+  });
 };
 
 export const deleteLikeCard = (cardID) => {
-  return fetch(`${apiConfig.baseUrl}/cards/likes/${cardID}`, {
+  return request(`${apiConfig.baseUrl}/cards/likes/${cardID}`, {
     method: "DELETE",
     headers: apiConfig.headers,
-  }).then(getResponce);
+  });
 };
 
 export const editProfileAvatar = (avatar) => {
-  return fetch(`${apiConfig.baseUrl}/users/me/avatar`, {
+  return request(`${apiConfig.baseUrl}/users/me/avatar`, {
     method: "PATCH",
     headers: apiConfig.headers,
     body: JSON.stringify({
       avatar: avatar,
     }),
-  }).then(getResponce);
+  });
 };

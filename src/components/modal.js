@@ -12,7 +12,6 @@ import {
   cardForm,
   titleInput,
   linkInput,
-  popupList,
   editAvatarButton,
   editAvatarPopup,
   avatarForm,
@@ -21,20 +20,12 @@ import {
 
 import { resetError } from "./validate";
 import { settingsObject } from "./utils";
-import { getUserInfo } from "./api";
 
-export let userID;
-
-getUserInfo()
-  .then((data) => {
-    nameProfile.textContent = data.name;
-    jobProfile.textContent = data.about;
-    avatarProfile.src = data.avatar;
-    userID = data._id;
-  })
-  .catch((err) => {
-    console.log("Данные не загрузились: ", err);
-  });
+export const updateUserData = (userData) => {
+  nameProfile.textContent = userData.name;
+  jobProfile.textContent = userData.about;
+  avatarProfile.src = userData.avatar;
+};
 
 /* Функция закрытия попапа нажатием на Esc */
 function closePopupEsc(evt) {
@@ -50,6 +41,7 @@ function openPopup(popup) {
   popup.classList.add("popup_opened");
   document.addEventListener("keydown", closePopupEsc);
 }
+
 /* Объявляем функцию закрытия для всех попапов */
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
@@ -87,19 +79,15 @@ editAvatarButton.addEventListener("click", () => {
   resetError(avatarForm, settingsObject);
 });
 
-/* Вешаем слушателeЙ клика на кнопки закрытия всех попапов */
-const closeButtons = document.querySelectorAll(".popup__close-icon");
-closeButtons.forEach((button) => {
-  const popup = button.closest(".popup");
-  button.addEventListener("click", () => closePopup(popup));
-});
+const popups = document.querySelectorAll(".popup");
 
-/* Реализуем закрытие попапов нажатием на оверлей */
-popupList.forEach((popupElement) => {
-  /* Вешаем слушателя события "клик на оверлей" для закрытия попапа */
-  popupElement.addEventListener("mousedown", function (evt) {
-    if (evt.target === popupElement) {
-      closePopup(popupElement);
+popups.forEach((popup) => {
+  popup.addEventListener("mousedown", (evt) => {
+    if (evt.target.classList.contains("popup_opened")) {
+      closePopup(popup);
+    }
+    if (evt.target.classList.contains("popup__close-icon")) {
+      closePopup(popup);
     }
   });
 });

@@ -4,10 +4,11 @@ import {
   popupFotoView,
   popupFotoImage,
   popupFotoName,
+  userParams,
 } from "./constants";
 
-import { openPopup, userID } from "./modal";
-import { getCards, deleteCard, likeCard, deleteLikeCard } from "./api";
+import { openPopup } from "./modal";
+import { deleteCard, likeCard, deleteLikeCard } from "./api";
 
 /* Объявляем функцию создания карточек, клонирующую template-элемент */
 function createCard(
@@ -35,7 +36,7 @@ function createCard(
   /* Проверяем список лайков картинки, чтобы понять если среди них мой */
   let likedByMe = false;
   elementLikes.every((like) => {
-    if (like._id !== userID) {
+    if (like._id !== userParams.userID) {
       return true;
     }
     likedByMe = true;
@@ -54,7 +55,7 @@ function createCard(
     likeNumberElement.textContent = "";
   }
 
-  if (elementOwnerId !== userID) {
+  if (elementOwnerId !== userParams.userID) {
     deleteIcon.classList.add("element__delete-icon_none");
   }
 
@@ -109,14 +110,14 @@ function createCard(
   return cardElement;
 }
 
-function addElement(
+export const addElement = (
   elementName,
   elementLink,
   elementLikes,
   elementLikeNumber,
   cardID,
   elementOwnerId
-) {
+) => {
   const elementCard = createCard(
     elementName,
     elementLink,
@@ -126,23 +127,17 @@ function addElement(
     elementOwnerId
   );
   elementsList.prepend(elementCard);
-}
+};
 
-getCards()
-  .then((data) => {
-    data.forEach((element) => {
-      addElement(
-        element.name,
-        element.link,
-        element.likes,
-        element.likes,
-        element._id,
-        element.owner._id
-      );
-    });
-  })
-  .catch((err) => {
-    console.log("Не удалось загрузить карточки: ", err);
+export const updateCardsData = (cardsInfo) => {
+  cardsInfo.reverse().forEach((element) => {
+    addElement(
+      element.name,
+      element.link,
+      element.likes,
+      element.likes,
+      element._id,
+      element.owner._id
+    );
   });
-
-export { addElement };
+};

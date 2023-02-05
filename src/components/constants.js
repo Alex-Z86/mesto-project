@@ -1,3 +1,7 @@
+export const userParams = {
+  userID: 0,
+};
+
 /* Выбираем элементы, необходимые для редактирования профиля */
 const infoProfile = document.querySelector(".profile__info");
 export const nameProfile = infoProfile.querySelector(".profile__name");
@@ -25,9 +29,6 @@ export const editAvatarPopup = document.querySelector(".popup__edit-avatar");
 export const editAvatarButton = document.querySelector(
   ".profile__edit-avatar-button"
 );
-
-/* Формируем массив из попапов */
-export const popupList = Array.from(document.querySelectorAll(".popup"));
 
 /* Выбираем элементы, необходимые для создания карточек */
 export const elementsList = document.querySelector(".elements__list");
